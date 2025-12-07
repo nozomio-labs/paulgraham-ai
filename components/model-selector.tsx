@@ -10,7 +10,6 @@ import {
 import Image from "next/image";
 import { 
   SUPPORTED_MODELS, 
-  DEFAULT_MODEL, 
   MODEL_DISPLAY_NAMES, 
   MODEL_LOGOS,
   type SupportedModel 

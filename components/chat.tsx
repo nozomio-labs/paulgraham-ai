@@ -11,7 +11,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Streamdown } from "streamdown";
-import { DEFAULT_MODEL, SUPPORTED_MODELS, type SupportedModel } from "@/lib/constants";
+import { DEFAULT_MODEL, type SupportedModel } from "@/lib/constants";
 
 const toolIcons: Record<string, React.ReactNode> = {
   searchEssays: <SearchIcon className="h-3 w-3" />,
