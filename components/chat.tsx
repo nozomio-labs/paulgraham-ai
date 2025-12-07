@@ -12,6 +12,13 @@ import { AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Streamdown } from "streamdown";
 import { DEFAULT_MODEL, type SupportedModel } from "@/lib/constants";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 
 const toolIcons: Record<string, React.ReactNode> = {
   searchEssays: <SearchIcon className="h-3 w-3" />,
@@ -118,15 +125,25 @@ export function Chat() {
   return (
     <div className="flex flex-col h-[100dvh] overflow-hidden">
       <div className="absolute top-3 left-3 md:top-4 md:left-4 z-10 flex gap-2 animate-fade-in safe-area-top">
-        <Button
-          onClick={handleNewChat}
-          variant="outline"
-          size="icon"
-          className="h-10 w-10 md:h-9 md:w-9 shadow-border-small hover:shadow-border-medium bg-background/80 backdrop-blur-sm border-0 hover:bg-background active:scale-95 md:hover:scale-[1.02] transition-all duration-150 ease"
-        >
-          <PlusIcon className="h-4 w-4" />
-        </Button>
-        <ThemeToggle />
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              onClick={handleNewChat}
+              variant="outline"
+              size="icon"
+              className="h-10 w-10 md:h-9 md:w-9 shadow-border-small hover:shadow-border-medium bg-background/80 backdrop-blur-sm border-0 hover:bg-background active:scale-95 md:hover:scale-[1.02] transition-all duration-150 ease"
+            >
+              <PlusIcon className="h-4 w-4" />
+            </Button>
+          </TooltipTrigger>
+
+          <TooltipContent side="right">
+            New Chat
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+  <ThemeToggle />
       </div>
       {!hasMessages && (
         <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-8 animate-fade-in safe-area-inset">
